@@ -1,0 +1,23 @@
+package project2;
+
+public class App {
+
+	public static void main(String[] args) {
+		int number = 121;
+		int num = number;
+		int rev = 0;
+		while(num!=0)
+		{
+			int rem = num%10;
+			rev = rev*10+rem;
+			num = num/10;
+		}
+		if (number==rev) {
+			System.out.println("number is palindrome");
+		}
+		else {
+			System.out.println("not a palindrome");
+		}
+	}
+
+}
