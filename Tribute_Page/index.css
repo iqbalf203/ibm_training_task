@@ -1,0 +1,27 @@
+body{
+    background-color: #00FA9A;
+    text-align: center;
+}
+
+.title{
+    font-size: 4.5rem;
+}
+
+.about-title{
+    text-shadow: 5px 5px 10px black;
+    text-align: center;
+    color: white;
+    font-size: 3.5rem;
+}
+
+.about{
+    background-color: rgb(46, 139, 87, 0.25);
+    box-shadow: 20px 20px 20px #98FB98;
+    text-align: left;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+p{
+    font-size: 1.2rem;
+}
