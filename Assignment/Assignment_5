@@ -1,0 +1,106 @@
+package com.example;
+
+
+
+public class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void displayDetails() {
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+}
+
+
+public class Politician extends Person {
+    private int term;
+    private double salaryPerTerm;
+
+    public Politician(String name, int age, int term, double salaryPerTerm) {
+        super(name, age);
+        this.term = term;
+        this.salaryPerTerm = salaryPerTerm;
+    }
+
+    public int getTerm() {
+        return term;
+    }
+
+    public void setTerm(int term) {
+        this.term = term;
+    }
+
+    public double getSalaryPerTerm() {
+        return salaryPerTerm;
+    }
+
+    public void setSalaryPerTerm(double salaryPerTerm) {
+        this.salaryPerTerm = salaryPerTerm;
+    }
+
+    public double calculateSalary() {
+        return term * salaryPerTerm;
+    }
+
+    public void displayDetails() {
+        super.displayDetails();
+        System.out.println("Terms: " + terms);
+        System.out.println("Salary per Term: Rs" + salaryPerTerm);
+        System.out.println("Total Salary: Rs" + calculateSalary());
+    }
+}
+
+public class Sportsman extends Person {
+    private String sport;
+    private double annualSalary;
+
+    public Sportsman(String name, int age, String sport, double annualSalary) {
+        super(name, age);
+        this.sport = sport;
+        this.annualSalary = annualSalary;
+    }
+
+    public String getSport() {
+        return sport;
+    }
+
+    public void setSport(String sport) {
+        this.sport = sport;
+    }
+
+    public double getAnnualSalary() {
+        return annualSalary;
+    }
+
+    public void setAnnualSalary(double annualSalary) {
+        this.annualSalary = annualSalary;
+    }
+
+    public void displayDetails() {
+        super.displayInfo();
+        System.out.println("Sport: " + sport);
+        System.out.println("Annual Salary: Rs" + annualSalary);
+    }
+}
