@@ -1,0 +1,36 @@
+package project8;
+
+public class EmployeeTax {
+	
+	private String employeeName;
+	private int employeeSalary;
+	private double incomeTax;
+
+	public EmployeeTax(String employeeName,int employeeSalary) {
+		this.employeeName = employeeName;
+		this.employeeSalary = employeeSalary;
+	}
+	
+	public void calculateTax() {
+		if (employeeSalary<=50000) {
+			this.incomeTax = 0;
+		}
+		else if (employeeSalary>=60000) {
+			this.incomeTax = employeeSalary*0.1;
+		}
+		else if (employeeSalary>=150000) {
+			this.incomeTax = employeeSalary*0.2;}
+		else {
+			this.incomeTax = employeeSalary*0.3;
+		}
+		System.out.println(employeeName+", Your Income Tax is: "+incomeTax);
+	}
+	
+	public static void main(String[] args) {
+		
+		EmployeeTax emp = new EmployeeTax("Jos",78000);
+		emp.calculateTax();
+
+	}
+
+}
