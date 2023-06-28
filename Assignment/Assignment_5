@@ -1,7 +1,5 @@
 package com.example;
-
-
-
+import java.util.Scanner;
 public class Person {
     private String name;
     private int age;
@@ -102,5 +100,38 @@ public class Sportsman extends Person {
         super.displayInfo();
         System.out.println("Sport: " + sport);
         System.out.println("Annual Salary: Rs" + annualSalary);
+    }
+}
+
+
+public class App {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter politician's name: ");
+        String politicianName = sc.nextLine();
+        System.out.print("Enter politician's age: ");
+        int politicianAge = sc.nextInt();
+        System.out.print("Enter number of terms: ");
+        int terms = scanner.nextInt();
+        System.out.print("Enter salary per term: ");
+        double salaryPerTerm = sc.nextDouble();
+        Politician politician = new Politician(politicianName, politicianAge, terms, salaryPerTerm);
+        System.out.print("Enter sportsman's name: ");
+        sc.nextLine(); 
+        String sportsmanName = sc.nextLine();
+        System.out.print("Enter sportsman's age: ");
+        int sportsmanAge = sc.nextInt();
+        System.out.print("Enter sport: ");
+        sc.nextLine();
+        String sport = sc.nextLine();
+        System.out.print("Enter annual salary: ");
+        double annualSalary = sc.nextDouble();
+        Sportsman sportsman = new Sportsman(sportsmanName, sportsmanAge, sport, annualSalary);
+        System.out.println("\nPolitician Details:");
+        politician.displayDetails();
+        System.out.println();
+        System.out.println("Sportsman Details:");
+        sportsman.displayDetails();
     }
 }
