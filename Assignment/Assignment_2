@@ -1,0 +1,50 @@
+package project8;
+
+import java.util.Scanner;
+
+public class Clock {
+    private int hours;
+    private int minutes;
+    private int seconds;
+    private String amPm;
+
+    public Clock(int hours, int minutes, int seconds) {
+        this.hours = hours;
+        this.minutes = minutes;
+        this.seconds = seconds;
+    }
+
+    public boolean isValidTime() {
+        return hours >= 0 && hours <= 23 && minutes >= 0 && minutes <= 59 && seconds >= 0 && seconds <= 59;
+    }
+
+    public void setAmPm() {
+        if (hours >= 0 && hours <= 11) {
+            amPm = "AM";
+        } else {
+            amPm = "PM";
+        }
+    }
+
+    public void display() {
+        System.out.println("Time: " + hours + ":" + minutes + ":" + seconds + " " + amPm);
+    }
+
+    public static void main(String[] args) {
+    	Scanner sc = new Scanner(System.in);
+		System.out.println("Hours: ");
+		int tempHours = sc.nextInt();
+		System.out.println("Minutes: ");
+		int tempMinutes = sc.nextInt();
+		System.out.println("Seconds: ");
+		int tempSeconds = sc.nextInt();
+        Clock clock = new Clock(tempHours, tempMinutes, tempSeconds);
+
+        if (!clock.isValidTime()) {
+            System.out.println("Invalid time!");
+        } else {
+            clock.setAmPm();
+            clock.display();
+        }
+    }
+}
