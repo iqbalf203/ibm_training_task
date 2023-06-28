@@ -1,0 +1,11 @@
+package w3schoolexcer;
+
+public enum DaysOfWeek {
+	Monday,
+	Tuesday,
+	Wednesday,
+	Thursday,
+	Friday,
+	Saturday,
+	Sunday;
+}
