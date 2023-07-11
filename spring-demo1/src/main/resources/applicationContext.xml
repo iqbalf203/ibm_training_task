@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<bean name="theCoach" class="org.example.model.BasketBallCoach">
+<property name="fortuneService" ref="fortune"></property>
+</bean>
+
+<bean name="fortune" class="org.example.model.HappyFortuneService"></bean>
+
+
+<bean name="p" class="org.example.model.Person">
+<constructor-arg name="firstName" value="Stalin"></constructor-arg>
+<constructor-arg name="lastName" value="Stalin"></constructor-arg>
+<constructor-arg name="address" ref="a"></constructor-arg>
+</bean>
+
+<bean name="a" class="org.example.model.Address">
+<constructor-arg name="line1" value="Salt Lake"></constructor-arg>
+<constructor-arg name="line2" value="Kolkata"></constructor-arg>
+</bean>
+</beans>
