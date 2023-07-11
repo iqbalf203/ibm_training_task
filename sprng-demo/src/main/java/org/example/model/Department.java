@@ -1,5 +1,8 @@
 package org.example.model;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -36,7 +39,16 @@ public class Department {
 		return "department id: " + departmentId + " department name: " + departmentName + " location: "
 				+ location;
 	}
-	
-	
+	@PostConstruct
+    public void initStudent()
+    {
+        System.out.println("init method called...");
+    }
+    
+    @PreDestroy
+    public void destroyStudent()
+    {
+        System.out.println("destroy method called...");
+    }
 
 }
