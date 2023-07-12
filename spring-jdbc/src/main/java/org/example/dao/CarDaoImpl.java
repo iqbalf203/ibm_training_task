@@ -58,13 +58,30 @@ public class CarDaoImpl implements CarDao {
 		    PreparedStatement pStatement = connection.prepareStatement("SELECT * FROM car WHERE car_id = ?");
 		    pStatement.setInt(1, id);
 		    ResultSet resultSet = pStatement.executeQuery();
+		    if (!resultSet.next()){System.out.println("Not Found...");}
 		    
+		    else {
 		    while (resultSet.next()) {
 		        Car car = new Car(resultSet.getInt(1), resultSet.getString(2));
 		        list1.add(car);
 		    }
-		    
+		    }   
 		    return list1;
 		}
-
+	
+	public void deleteById(int id) throws SQLException{
+		connection = carFactory.getMyConnection();
+	    PreparedStatement pStatement = connection.prepareStatement("DELETE FROM car WHERE car_id = ?");
+	    pStatement.setInt(1, id);
+	    pStatement.executeUpdate();
+	    System.out.println("id: "+id+" Deleted Successfully...");
+	}
+	
+	public void deleteAll() throws SQLException{
+		connection = carFactory.getMyConnection();
+	    PreparedStatement pStatement = connection.prepareStatement("DELETE FROM car");
+	    pStatement.executeUpdate();
+	    System.out.println("Deleted All Successfully...");
+	}
+	
 	}

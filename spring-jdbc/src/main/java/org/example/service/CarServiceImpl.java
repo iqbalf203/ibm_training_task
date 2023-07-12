@@ -37,4 +37,16 @@ public class CarServiceImpl implements CarService {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void deleteById(int id) throws SQLException {
+		carDao.deleteById(id);
+		
+	}
+
+	@Override
+	public void deleteAll() throws SQLException {
+		carDao.deleteAll();
+		
+	}
 }
