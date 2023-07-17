@@ -43,8 +43,8 @@ public class AddCourseServlet extends HttpServlet {
 			out.println("<option value='"+s+"'>"+s+"</option>");
 		}
 		out.println("</select></td></tr>");
-		out.println("<table><tr><td>Course Price</td><td><input type='text' name='price'></td></tr>");
-		out.println("<tr><td><input type='submit' value='Add New Course'></table></form></body></html>");
+		out.println("<tr><td>Course Price</td><td><input type='text' name='price'></td></tr>");
+		out.println("<tr><td><input type='submit' value='Add New Course'></form></body></html>");
 	
 	}
 }
