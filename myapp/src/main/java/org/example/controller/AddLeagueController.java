@@ -38,7 +38,7 @@ public class AddLeagueController extends HttpServlet {
 		List<String> errors = new ArrayList<String>();
 
 		season = request.getParameter("season");
-		if (season.equals("Unknown")) {
+		if (season.equals("UNKNOWN")) {
 			errors.add("please select a season.");
 
 		}
