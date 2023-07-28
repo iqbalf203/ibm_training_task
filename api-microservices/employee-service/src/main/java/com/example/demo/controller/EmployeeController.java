@@ -1,6 +1,6 @@
 package com.example.demo.controller;
 
-import org.springframework.core.env.Environment;	
+import org.springframework.core.env.Environment;		
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import com.example.demo.exception.DepartmentNotFoundException;
 import com.example.demo.model.EmployeeEntity;
 import com.example.demo.service.EmployeeService;
 import com.example.demo.ui.DepartmentDto;
@@ -29,18 +30,22 @@ public class EmployeeController {
 
 	@GetMapping("/status")
 	public ResponseEntity<?> status() {
-		return ResponseEntity
-				.ok("employee-service is up and runuing on port: " + environment.getProperty("local.server.port"));
+		return ResponseEntity.ok("employee-service is up and running on port: " + environment.getProperty("local.server.port"));
 	}
 
 	@PostMapping("/{departmentName}")
-	public ResponseEntity<?> createEmployee(@RequestBody EmployeeEntity employee,@PathVariable String departmentName) {
-		Object o = restTemplate.getForObject("http://localhost:9999/DEPARTMENT-SERVICE/departments/" + departmentName,DepartmentDto.class);
+	public ResponseEntity<?> createEmployee(@RequestBody EmployeeEntity employee,@PathVariable String departmentName) throws DepartmentNotFoundException {
+		
+		Object dpt = restTemplate.getForObject("http://localhost:9999/DEPARTMENT-SERVICE/departments/" + departmentName,DepartmentDto.class);
+		if (dpt == null) {
+			throw new DepartmentNotFoundException("Department '"+departmentName + "' Not Found.");
+		} else {
+			DepartmentDto dto = (DepartmentDto) dpt;
+			employee.setDepartmentId(dto.getDepartmentId());
+			employee.setDepartmentName(dto.getDepartmentName());
+			return ResponseEntity.status(HttpStatus.CREATED).body(employeeService.createEmployee(employee));
+		}
 
-		DepartmentDto dto = (DepartmentDto) o;
-		employee.setDepartmentId(dto.getDepartmentId());
-		employee.setDepartmentName(dto.getDepartmentName());
-		return ResponseEntity.status(HttpStatus.CREATED).body(employeeService.createEmployee(employee));
 	}
 
 }

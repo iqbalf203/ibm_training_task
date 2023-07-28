@@ -22,7 +22,7 @@ public class DepartmentController {
 
 	@GetMapping("/status")
 	public String status() {
-		return "department-service is up and runing on port" + environment.getProperty("local.server.port");
+		return "department-service is up and running on port" + environment.getProperty("local.server.port");
 	}
 
 	@GetMapping("/{departmentName}")
